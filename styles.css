@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body {
+  background-color: #000000;
+  /* Scrim layer first so it paints over the photo; text sits above both. */
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.55) 100%
+    ),
+    url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+main {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 0 8vw;
+}
+
+h1 {
+  margin: 0;
+  /* Height term keeps landscape phones from colliding with the label. */
+  font-size: clamp(3rem, min(14vw, 22vh), 9rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  /* Offset the trailing letter-spacing so the word is optically centered. */
+  padding-left: 0.15em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.label {
+  position: absolute;
+  bottom: 12vh;
+  bottom: 12dvh;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.9em 2.6em 0.9em 2.75em;
+  border: 2px solid #FFFFFF;
+  border-radius: 4px;
+  font-size: clamp(0.8rem, 2.4vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 767px) {
+  body {
+    background-position: 65% center;
+  }
+}
